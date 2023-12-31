@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rieder's Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 2em;
+        }
+
+        #enterButton {
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #ffffff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Rieder</h1>
+        <h2 id="subtitle"></h2>
+    </div>
+
+    <a id="enterButton" href="https://hemerocallis-fulva.top" target="_blank">进入文章</a>
+
+    <script>
+        // 使用 fetch 获取 v1.hitokoto.cn 的句子
+        fetch('https://v1.hitokoto.cn/')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('subtitle').innerText = data.hitokoto;
+            })
+            .catch(error => console.error('Error fetching hitokoto:', error));
+    </script>
+</body>
+</html>
